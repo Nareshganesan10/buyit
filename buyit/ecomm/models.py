@@ -1,6 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-
 
 class OrderModel(models.Model):
     order_id = models.AutoField(primary_key=True)
@@ -15,7 +13,6 @@ class OrderModel(models.Model):
 class ProductModel(models.Model):
     product_name = models.CharField(max_length=200)
     stock_count = models.IntegerField()
-    order_id = models.ForeignKey(OrderModel, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.product_name, self.stock_count
@@ -26,8 +23,8 @@ class UserModel(models.Model):
     password = models.CharField(max_length=50,)
     is_admin = models.BooleanField()
     is_seller = models.BooleanField()
-    order_id = models.ForeignKey(OrderModel, on_delete=models.CASCADE)
-    phone = models.IntegerField(null=False, unique=True)
+    # order_id = models.ForeignKey(OrderModel, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=10, null=False, unique=True)
     address = models.TextField(null=False)
 
     def __str__(self):
