@@ -77,6 +77,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'buyit.wsgi.application'
 
+APPEND_SLASH = False
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
